@@ -1,9 +1,9 @@
 "use client";
 
 import { useGeolocationQuery } from "@/api/geolocation/hooks/useGeolocationQuery";
+import { useGeolocationStore } from "@/stores/geolocation.store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input } from "@nextui-org/react";
-import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -17,8 +17,6 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export const IpGeolocationLookupForm = () => {
-  const [selectedIp, setSelectedIp] = useState("");
-
   const {
     register,
     handleSubmit,
@@ -27,14 +25,17 @@ export const IpGeolocationLookupForm = () => {
     resolver: zodResolver(formSchema),
   });
 
+  const selectedIp = useGeolocationStore((state) => state.selectedIp);
+  const setSelectedIp = useGeolocationStore((state) => state.setSelectedIp);
+
   const { error, isFetching, isError } = useGeolocationQuery(selectedIp);
 
-  const onSubmit: SubmitHandler<FormValues> = ({ ip }) => {
-    setSelectedIp(ip);
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    setSelectedIp(data.ip);
   };
 
   return (
-    <form className="flex gap-3 items-center" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex gap-3" onSubmit={handleSubmit(onSubmit)}>
       <Input
         size="lg"
         placeholder="Enter an IP address"
