@@ -1,5 +1,6 @@
 import { subtitle, title } from "@/components/primitives";
 import { IpGeolocationLookupForm } from "./_components/ip-geolocation-lookup-form";
+import { IpGeolocationResult } from "./_components/ip-geolocation-result";
 
 export default function Home() {
   return (
@@ -18,8 +19,9 @@ export default function Home() {
         </h2>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex flex-col justify-center items-center gap-10 ">
         <IpGeolocationLookupForm />
+        <IpGeolocationResult />
       </div>
     </section>
   );
