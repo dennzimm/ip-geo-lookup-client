@@ -30,6 +30,10 @@ export const IpGeolocationLookupForm = () => {
 
   const { error, isFetching, isError } = useGeolocationQuery(selectedIp);
 
+  const onClear = () => {
+    setSelectedIp("");
+  };
+
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setSelectedIp(data.ip);
   };
@@ -44,6 +48,7 @@ export const IpGeolocationLookupForm = () => {
         errorMessage={errors.ip?.message || error?.message}
         isDisabled={isFetching}
         isClearable
+        onClear={onClear}
       />
 
       <Button
