@@ -2,7 +2,7 @@
 
 import { useGeolocationQuery } from "@/api/geolocation/hooks/useGeolocationQuery";
 import { Map } from "@/components/map";
-import { useGeolocationStore } from "@/stores/geolocation.store";
+import { useGeolocationStore } from "@/stores/geolocation-store";
 import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
 
 export const IpGeolocationResult = () => {

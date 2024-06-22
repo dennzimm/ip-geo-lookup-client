@@ -9,7 +9,8 @@ export interface MapProps {
   coordinates: [number, number];
 }
 
-const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
+const geoUrl =
+  "https://unpkg.com/world-atlas@2.0.2/countries-110m.json" as const;
 
 export const Map = ({ coordinates }: MapProps) => {
   return (

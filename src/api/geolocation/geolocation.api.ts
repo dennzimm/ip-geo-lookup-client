@@ -1,9 +1,9 @@
 import { isAxiosError } from "axios";
 import { apiClient } from "../api.client";
-import { ServiceResponse } from "../types/service-response.interface";
-import { GeolocationResponse } from "./types/geolocation-response.interface";
+import type { ServiceResponse } from "../types/service-response.interface";
+import type { GeolocationResponse } from "./types/geolocation-response.interface";
 
-const GEOLOCATION_BASE_URL = "/v1/geolocation";
+const GEOLOCATION_BASE_URL = "/v1/geolocation" as const;
 
 export const fetchGeolocation = async (
   ip: string

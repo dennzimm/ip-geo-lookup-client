@@ -1,7 +1,7 @@
 "use client";
 
 import { useGeolocationQuery } from "@/api/geolocation/hooks/useGeolocationQuery";
-import { useGeolocationStore } from "@/stores/geolocation.store";
+import { useGeolocationStore } from "@/stores/geolocation-store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input } from "@nextui-org/react";
 import { SubmitHandler, useForm } from "react-hook-form";
