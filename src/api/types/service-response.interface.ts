@@ -10,3 +10,7 @@ export interface ServiceResponse<T = null> {
   statusCode: number;
   stack?: string;
 }
+
+export interface ServiceErrorResponse extends ServiceResponse<null> {
+  success: false;
+}
