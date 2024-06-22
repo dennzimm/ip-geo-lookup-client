@@ -1,4 +1,5 @@
 import { subtitle, title } from "@/components/primitives";
+import { IpGeolocationLookupForm } from "./_components/ip-geolocation-lookup-form";
 
 export default function Home() {
   return (
@@ -15,6 +16,10 @@ export default function Home() {
           Quickly and easily find out the city and country associated with any
           IP address. Enter the IP below to start your search.
         </h2>
+      </div>
+
+      <div className="flex gap-3">
+        <IpGeolocationLookupForm />
       </div>
     </section>
   );
