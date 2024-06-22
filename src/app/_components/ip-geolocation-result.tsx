@@ -1,6 +1,7 @@
 "use client";
 
 import { useGeolocationQuery } from "@/api/geolocation/hooks/useGeolocationQuery";
+import { Map } from "@/components/map";
 import { useGeolocationStore } from "@/stores/geolocation.store";
 import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
 
@@ -12,7 +13,7 @@ export const IpGeolocationResult = () => {
     return null;
   }
 
-  const { country, regionName, city } = data.responseObject;
+  const { country, regionName, city, lat, lon } = data.responseObject;
 
   return (
     <Card className="max-w-[400px]">
@@ -26,7 +27,7 @@ export const IpGeolocationResult = () => {
         </div>
       </CardHeader>
       <Divider />
-      <CardBody>
+      <CardBody className="flex flex-col gap-4">
         <ul>
           <li>
             <strong>IP Address:</strong> {selectedIp}
@@ -41,6 +42,8 @@ export const IpGeolocationResult = () => {
             <strong>City:</strong> {city}
           </li>
         </ul>
+
+        <Map coordinates={[lon, lat]} />
       </CardBody>
     </Card>
   );
