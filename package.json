@@ -1,7 +1,14 @@
 {
-  "name": "ip-geo-lookup-x",
-  "version": "0.1.0",
-  "private": true,
+  "name": "ip-geo-lookup",
+  "version": "1.0.0",
+  "description": "This is the client-side application for the IP Geolocation Service. It allows users to input an IP address and displays the geolocation information retrieved from the server.",
+  "author": "Dennis Zimmermann <https://github.com/dennzimm>",
+  "homepage": "https://github.com/dennzimm/ip-geo-lookup-client",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennzimm/ip-geo-lookup-client"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
